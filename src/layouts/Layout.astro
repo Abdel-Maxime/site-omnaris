@@ -24,6 +24,16 @@ import Navigation from '@/components/Navigation.astro'
 		<Navigation />
 		<slot />
 		<Footer />
+		<script>
+			import { initSplitTextAnimation } from "../scripts/heading-animation.js";
+			
+			// Init on page load
+			document.addEventListener("DOMContentLoaded", initSplitTextAnimation);
+			
+			// Handle Astro view transitions
+			document.addEventListener("astro:page-load", initSplitTextAnimation);
+			// Removed cleanupSplitTextAnimation as it is not exported
+		  </script>
 	</body>
 </html>
 

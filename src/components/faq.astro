@@ -1,24 +1,59 @@
+---
+const faqs = [
+  {
+    question: "Pourquoi choisir Webflow plutôt qu'une autre plateforme ?",
+    answer: "Webflow offre une flexibilité de design inégalée tout en générant un code propre et optimisé pour le SEO. Contrairement à WordPress, vous n'avez pas besoin de plugins, et contrairement aux builders classiques, vous gardez un contrôle total sur le design. C'est la solution idéale pour les entreprises qui veulent un site performant et facile à maintenir."
+  },
+  {
+    question: "Combien de temps faut-il pour créer un site Webflow ?",
+    answer: "En moyenne, un site vitrine prend 2-3 semaines, tandis qu'un site e-commerce ou avec des fonctionnalités avancées peut prendre 4-6 semaines. Le délai dépend de la complexité du projet, du nombre de pages et du contenu fourni. Nous travaillons en sprints pour vous livrer des résultats rapidement."
+  },
+  {
+    question: "Puis-je modifier mon site moi-même après la livraison ?",
+    answer: "Absolument ! C'est l'un des grands avantages de Webflow. Nous vous formons à l'utilisation de l'éditeur visuel pour que vous puissiez modifier textes, images et contenu en toute autonomie. Pour les modifications plus complexes (structure, animations), nous restons disponibles pour vous accompagner."
+  },
+  {
+    question: "Quels sont les coûts d'hébergement d'un site Webflow ?",
+    answer: "L'hébergement Webflow démarre à 14$/mois pour un site basique et 23$/mois pour un site avec CMS. Ces tarifs incluent l'hébergement rapide sur CDN, le SSL, et les sauvegardes automatiques. Nous vous conseillons sur le plan le plus adapté à vos besoins."
+  },
+  {
+    question: "Mon site Webflow sera-t-il bien référencé sur Google ?",
+    answer: "Oui ! Webflow génère un code propre et optimisé pour le SEO. Nous intégrons également toutes les bonnes pratiques : balises meta, optimisation des images, structure des URLs, sitemap automatique, et temps de chargement rapides. Nous pouvons aussi vous accompagner sur une stratégie SEO complète."
+  },
+  {
+    question: "Proposez-vous de la maintenance après la livraison ?",
+    answer: "Oui, nous proposons des contrats de maintenance mensuels incluant les mises à jour de contenu, le support technique, les sauvegardes régulières et l'optimisation continue de votre site. Vous pouvez aussi nous contacter ponctuellement pour des modifications spécifiques."
+  },
+  {
+    question: "Puis-je migrer mon site existant vers Webflow ?",
+    answer: "Oui, nous gérons la migration complète de votre site (WordPress, Wix, Squarespace, etc.) vers Webflow. Nous recréons votre design, migrons vos contenus, et mettons en place les redirections 301 pour préserver votre référencement. C'est l'occasion de moderniser votre site !"
+  },
+  {
+    question: "Webflow est-il adapté pour un site e-commerce ?",
+    answer: "Oui, Webflow E-commerce permet de créer des boutiques en ligne élégantes et performantes. Il convient parfaitement pour des catalogues jusqu'à 3000 produits. Pour des besoins plus complexes (marketplace, intégrations spécifiques), nous pouvons connecter Webflow à des solutions comme Shopify via API."
+  }
+];
+---
+
+
 <section class="section-layout flex flex-col justify-start items-center gap-4">
+
   <span class="mb-4 inline-flex rounded-full bg-secondary/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-secondary">
     FAQ
   </span>
-    <h2 class="title-overlay">Questions fréquentes</h2>
+    <h2 class="">Questions fréquentes</h2>
     <div class="w-full flex flex-col gap-4">
-      <div class="collapse collapse-arrow bg-base-100 border border-base-300">
-        <input type="radio" name="my-accordion-2" checked="checked" />
-        <div class="collapse-title font-semibold">How do I create an account?</div>
-        <div class="collapse-content text-sm">Click the "Sign Up" button in the top right corner and follow the registration process.</div>
-      </div>
-      <div class="collapse collapse-arrow bg-base-100 border border-base-300">
-        <input type="radio" name="my-accordion-2" />
-        <div class="collapse-title font-semibold">I forgot my password. What should I do?</div>
-        <div class="collapse-content text-sm">Click on "Forgot Password" on the login page and follow the instructions sent to your email.</div>
-      </div>
-      <div class="collapse collapse-arrow bg-base-100 border border-base-300">
-        <input type="radio" name="my-accordion-2" />
-        <div class="collapse-title font-semibold">How do I update my profile information?</div>
-        <div class="collapse-content text-sm">Go to "My Account" settings and select "Edit Profile" to make changes.</div>
-      </div>
+      {faqs.map((faq, index) => (
+        <div class="collapse collapse-arrow bg-white border border-gray-200 rounded-xl hover:border-gray-300 transition-colors">
+          <input type="radio" name="faq-accordion" checked={index === 0} />
+          <div class="collapse-title text-lg font-semibold text-gray-900">
+            {faq.question}
+          </div>
+          <div class="collapse-content text-base text-gray-600 leading-relaxed">
+            <p>{faq.answer}</p>
+          </div>
+        </div>
+      ))}
     </div>
     
 </section>

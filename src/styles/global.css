@@ -419,6 +419,27 @@
   }
 }
 
+/* src/styles/global.css */
+
+/* ===== Split Text Animation ===== */
+
+.line-wrapper {
+  overflow: hidden;
+  padding-bottom: 0.12em;
+  perspective: 1000px;
+}
+
+.split-line {
+  display: block;
+  will-change: transform, opacity;
+  transform-origin: center bottom;
+}
+
+h1, h2, h3 {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
 /* ===== ANIMATIONS ===== */
 @keyframes aurora {
   from {
