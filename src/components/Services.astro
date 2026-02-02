@@ -1,0 +1,341 @@
+---
+const services = [
+  {
+    id: "webflow",
+    title: "Intégration Webflow",
+    description: "Nous intégrons votre site Webflow avec précision, de manière à bâtir un site internet robuste, scalable et performant.",
+    image: "/webflow.avif",
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>`,
+    accent: "#1e223a"
+  },
+  {
+    id: "seo",
+    title: "Stratégie SEO",
+    description: "Nous réaliserons un audit de mot clé précis pour votre business puis optimiserons votre site internet pour développer votre visibilité en ligne.",
+    image: "/seo.png",
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/><path d="M11 8v6"/><path d="M8 11h6"/></svg>`,
+    accent: "#3da35d"
+  },
+  {
+    id: "ads",
+    title: "Campagnes Google Ads",
+    description: "Vous voulez développer votre entreprise et contrôler sa croissance ? Nous configurons vos campagnes Google Ads avec toutes les bonnes pratiques.",
+    image: "/sea.png",
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20V10"/><path d="M18 20V4"/><path d="M6 20v-4"/></svg>`,
+    accent: "#1e223a"
+  }
+];
+---
+
+<section class="section-layout relative overflow-hidden">
+  <div class="mx-auto">
+    <!-- Header -->
+    <div class="mb-16 flex flex-col gap-4 justify-center items-center text-center max-lg:mb-10">
+      <span class="inline-flex rounded-full bg-secondary/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-secondary">
+        Services
+      </span>
+      <h2 class="title-overlay">
+        Un panel d'expertise complet
+      </h2>
+      <p class="text-body text-muted-foreground">
+        Des solutions sur-mesure pour propulser votre présence digitale
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 items-start gap-8 lg:grid-cols-2 lg:items-center lg:gap-12">
+      <!-- Tabs à gauche -->
+      <div class="relative flex flex-col" data-tabs-container>
+        <!-- Progress bar verticale (desktop only) -->
+        <div class="absolute bottom-0 left-0 top-0 hidden w-0.75 overflow-hidden rounded-full bg-border lg:block">
+          <div 
+            class="absolute left-0 w-full rounded-full bg-secondary transition-colors duration-300" 
+            data-progress
+          ></div>
+        </div>
+        
+        {services.map((service, index) => (
+          <button 
+            class:list={[
+              "service-tab group relative flex w-full h-full cursor-pointer border-none bg-transparent py-5 pl-6 pr-5 text-left transition-colors duration-200",
+              "hover:bg-primary/3",
+              "max-lg:border-l-[3px] max-lg:border-transparent max-lg:pl-4",
+              { "max-lg:border-l-secondary!": index === 0 }
+            ]}
+            data-tab={service.id}
+            data-index={index}
+            data-accent={service.accent}
+          >
+            <div class="flex w-full items-start gap-4">
+              <div 
+                class:list={[
+                  "tab-icon flex size-10 min-w-10 items-center justify-center rounded-[10px] transition-all duration-300",
+                  index === 0 ? "text-white shadow-lg" : "bg-muted text-muted-foreground"
+                ]}
+                style={index === 0 ? `background-color: ${service.accent}; box-shadow: 0 4px 12px ${service.accent}4D;` : ""}
+                set:html={service.icon}
+                data-accent={service.accent}
+              />
+              <div class="min-w-0 flex-1">
+                <h3 class:list={[
+                  "tab-title mb-1 font-semibold leading-tight transition-colors duration-200",
+                  index === 0 ? "text-primary" : "text-foreground"
+                ]}>
+                  {service.title}
+                </h3>
+                <p class:list={[
+                  "tab-description m-0 text-[0.8125rem] leading-normal text-muted-foreground transition-opacity duration-200",
+                  index === 0 ? "opacity-100" : "opacity-70"
+                ]}>
+                  {service.description}
+                </p>
+              </div>
+            </div>
+          </button>
+        ))}
+      </div>
+
+      <!-- Image showcase à droite -->
+      <div class="relative lg:sticky lg:top-8">
+        <div class="relative aspect-4/3 overflow-hidden rounded-xl border border-border bg-card max-lg:aspect-video">
+          <!-- Images -->
+          {services.map((service, index) => (
+            <div 
+              class:list={[
+                "showcase-image absolute inset-0",
+                index === 0 ? "visible opacity-100" : "invisible opacity-0"
+              ]}
+              data-image={service.id}
+            >
+              <img 
+                src={service.image} 
+                alt={service.title}
+                class="size-full object-cover"
+                loading={index === 0 ? "eager" : "lazy"}
+              />
+            </div>
+          ))}
+
+          <!-- Floating badge -->
+          <div class="absolute bottom-4 left-4 flex items-center gap-2 rounded-full bg-white/95 px-3.5 py-2 shadow-md backdrop-blur-sm">
+            <span class="size-1.5 animate-pulse rounded-full bg-secondary"></span>
+            <span class="text-xs font-medium text-primary">Expertise certifiée</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  import { gsap } from 'gsap';
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const tabsContainer = document.querySelector('[data-tabs-container]') as HTMLElement;
+    const tabs = tabsContainer?.querySelectorAll('.service-tab') as NodeListOf<HTMLElement>;
+    const images = document.querySelectorAll('.showcase-image') as NodeListOf<HTMLElement>;
+    const progressBar = document.querySelector('[data-progress]') as HTMLElement;
+    
+    const AUTOPLAY_DURATION = 5000;
+    const tabCount = tabs.length;
+    let currentIndex = 0;
+    let autoplayInterval: ReturnType<typeof setInterval> | null = null;
+    let progressTween: gsap.core.Tween | null = null;
+    let isHovering = false;
+
+    function getTabsContainerHeight() {
+      return tabsContainer?.offsetHeight || 240;
+    }
+
+    function switchToTab(index: number, animate = true) {
+      const targetTab = tabs[index];
+      if (!targetTab) return;
+
+      const tabId = targetTab.dataset.tab;
+      const accent = targetTab.dataset.accent || '#3da35d';
+
+      // Update tabs UI
+      tabs.forEach((tab, i) => {
+        const icon = tab.querySelector('.tab-icon') as HTMLElement;
+        const title = tab.querySelector('.tab-title') as HTMLElement;
+        const description = tab.querySelector('.tab-description') as HTMLElement;
+        const tabAccent = tab.dataset.accent || '#3da35d';
+        
+        // Mobile border
+        if (i === index) {
+          tab.classList.add('max-lg:!border-l-secondary');
+        } else {
+          tab.classList.remove('max-lg:!border-l-secondary');
+        }
+        
+        if (i === index) {
+          // Active state
+          icon.style.backgroundColor = tabAccent;
+          icon.style.boxShadow = `0 4px 12px ${tabAccent}4D`;
+          icon.classList.remove('bg-muted', 'text-muted-foreground');
+          icon.classList.add('text-white', 'shadow-lg');
+          title.classList.remove('text-foreground');
+          title.classList.add('text-primary');
+          description.classList.remove('opacity-70');
+          description.classList.add('opacity-100');
+        } else {
+          // Inactive state
+          icon.style.backgroundColor = '';
+          icon.style.boxShadow = '';
+          icon.classList.add('bg-muted', 'text-muted-foreground');
+          icon.classList.remove('text-white', 'shadow-lg');
+          title.classList.add('text-foreground');
+          title.classList.remove('text-primary');
+          description.classList.add('opacity-70');
+          description.classList.remove('opacity-100');
+        }
+      });
+
+      // Animate progress bar position
+      const containerHeight = getTabsContainerHeight();
+      const segmentHeight = containerHeight / tabCount;
+      const targetY = index * segmentHeight;
+
+      gsap.to(progressBar, {
+        top: targetY,
+        height: segmentHeight,
+        backgroundColor: accent,
+        duration: animate ? 0.4 : 0,
+        ease: 'power2.out'
+      });
+
+      // Animate images
+      images.forEach((img) => {
+        if (img.dataset.image === tabId) {
+          gsap.killTweensOf(img);
+          
+          if (animate) {
+            gsap.fromTo(img,
+              { opacity: 0, scale: 1.05 },
+              { 
+                opacity: 1, 
+                scale: 1,
+                visibility: 'visible',
+                duration: 0.5,
+                ease: 'power2.out'
+              }
+            );
+          } else {
+            gsap.set(img, { opacity: 1, scale: 1, visibility: 'visible' });
+          }
+          img.classList.add('visible', 'opacity-100');
+          img.classList.remove('invisible', 'opacity-0');
+        } else {
+          gsap.killTweensOf(img);
+          
+          if (animate) {
+            gsap.to(img, {
+              opacity: 0,
+              duration: 0.3,
+              ease: 'power2.in',
+              onComplete: () => {
+                img.classList.remove('visible', 'opacity-100');
+                img.classList.add('invisible', 'opacity-0');
+              }
+            });
+          } else {
+            gsap.set(img, { opacity: 0, visibility: 'hidden' });
+            img.classList.remove('visible', 'opacity-100');
+            img.classList.add('invisible', 'opacity-0');
+          }
+        }
+      });
+
+      currentIndex = index;
+    }
+
+    function startProgressAnimation() {
+      if (progressTween) progressTween.kill();
+      
+      progressTween = gsap.fromTo(progressBar,
+        { scaleY: 0.3 },
+        {
+          scaleY: 1,
+          duration: AUTOPLAY_DURATION / 1000,
+          ease: 'none',
+          transformOrigin: 'top center'
+        }
+      );
+    }
+
+    function startAutoplay() {
+      stopAutoplay();
+      startProgressAnimation();
+
+      autoplayInterval = setInterval(() => {
+        if (!isHovering) {
+          const nextIndex = (currentIndex + 1) % tabCount;
+          switchToTab(nextIndex);
+          startProgressAnimation();
+        }
+      }, AUTOPLAY_DURATION);
+    }
+
+    function stopAutoplay() {
+      if (autoplayInterval) {
+        clearInterval(autoplayInterval);
+        autoplayInterval = null;
+      }
+      if (progressTween) {
+        progressTween.kill();
+      }
+    }
+
+    // Event listeners
+    tabs.forEach((tab, index) => {
+      tab.addEventListener('click', () => {
+        switchToTab(index);
+        stopAutoplay();
+        startAutoplay();
+      });
+
+      tab.addEventListener('mouseenter', () => {
+        isHovering = true;
+        if (progressTween) progressTween.pause();
+      });
+
+      tab.addEventListener('mouseleave', () => {
+        isHovering = false;
+        if (progressTween) progressTween.resume();
+      });
+    });
+
+    // Keyboard navigation
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowDown' || e.key === 'ArrowRight') {
+        e.preventDefault();
+        switchToTab((currentIndex + 1) % tabCount);
+        stopAutoplay();
+        startAutoplay();
+      } else if (e.key === 'ArrowUp' || e.key === 'ArrowLeft') {
+        e.preventDefault();
+        switchToTab((currentIndex - 1 + tabCount) % tabCount);
+        stopAutoplay();
+        startAutoplay();
+      }
+    });
+
+    // Pause on tab visibility change
+    document.addEventListener('visibilitychange', () => {
+      if (document.hidden) {
+        stopAutoplay();
+      } else {
+        startAutoplay();
+      }
+    });
+
+    // Initialize
+    switchToTab(0, false);
+    
+    requestAnimationFrame(() => {
+      const containerHeight = getTabsContainerHeight();
+      const segmentHeight = containerHeight / tabCount;
+      gsap.set(progressBar, { height: segmentHeight });
+      startAutoplay();
+    });
+  });
+</script>

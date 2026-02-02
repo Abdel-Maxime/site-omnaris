@@ -1,0 +1,290 @@
+---
+// src/pages/styleguide.astro
+import Layout from '@/layouts/Layout.astro';
+---
+
+<Layout>
+  <div class="min-h-screen bg-background">
+    <!-- Header -->
+    <div class="border-b">
+      <div class="container mx-auto px-6 py-8">
+        <h1 class="text-display-lg mb-2">Style Guide</h1>
+        <p class="text-body-lg text-muted-foreground">Omnaris Refonte - Design System</p>
+      </div>
+    </div>
+
+    <div class="container mx-auto px-6 py-12 space-y-24">
+      
+      <!-- Typography Section -->
+      <section>
+        <h2 class="text-h2 mb-2">Typography</h2>
+        <p class="text-body text-muted-foreground mb-12">Font: Urbanist • Scale: Major Third (1.25) • Base: 16px</p>
+        
+        <!-- Display Sizes -->
+        <div class="space-y-8 mb-16">
+          <div>
+            <p class="text-caption text-muted-foreground mb-3">DISPLAY 2XL • 72px • Bold • -0.02em</p>
+            <h1 class="text-display-2xl">The quick brown fox jumps</h1>
+          </div>
+          
+          <div>
+            <p class="text-caption text-muted-foreground mb-3">DISPLAY XL • 60px • Bold • -0.02em</p>
+            <h1 class="text-display-xl">The quick brown fox jumps over</h1>
+          </div>
+          
+          <div>
+            <p class="text-caption text-muted-foreground mb-3">DISPLAY LG • 48px • Bold • -0.01em</p>
+            <h1 class="text-display-lg">The quick brown fox jumps over the lazy dog</h1>
+          </div>
+        </div>
+
+        <!-- Headings -->
+        <div class="space-y-8 mb-16">
+          <div>
+            <p class="text-caption text-muted-foreground mb-3">H1 • 39px • Bold • -0.01em • LH 1.2</p>
+            <h1 class="text-h1">The quick brown fox jumps over the lazy dog</h1>
+          </div>
+          
+          <div>
+            <p class="text-caption text-muted-foreground mb-3">H2 • 31px • Semibold • LH 1.3</p>
+            <h2 class="text-h2">The quick brown fox jumps over the lazy dog</h2>
+          </div>
+          
+          <div>
+            <p class="text-caption text-muted-foreground mb-3">H3 • 25px • Semibold • LH 1.4</p>
+            <h3 class="text-h3">The quick brown fox jumps over the lazy dog</h3>
+          </div>
+          
+          <div>
+            <p class="text-caption text-muted-foreground mb-3">H4 • 20px • Semibold • LH 1.5</p>
+            <h4 class="text-h4">The quick brown fox jumps over the lazy dog</h4>
+          </div>
+          
+          <div>
+            <p class="text-caption text-muted-foreground mb-3">H5 • 16px • Semibold • LH 1.5</p>
+            <h5 class="text-h5">The quick brown fox jumps over the lazy dog</h5>
+          </div>
+        </div>
+
+        <!-- Body Text -->
+        <div class="space-y-8">
+          <div>
+            <p class="text-caption text-muted-foreground mb-3">BODY XL • 20px • Regular • LH 1.8</p>
+            <p class="text-body-xl max-w-prose">
+              The quick brown fox jumps over the lazy dog. This is body text extra large, perfect for introductions or lead paragraphs that need extra emphasis. It provides excellent readability and draws attention to important content.
+            </p>
+          </div>
+          
+          <div>
+            <p class="text-caption text-muted-foreground mb-3">BODY LG • 18px • Regular • LH 1.78</p>
+            <p class="text-body-lg max-w-prose">
+              The quick brown fox jumps over the lazy dog. This is body text large, great for featured content or important paragraphs. The generous line height ensures comfortable reading even for longer passages.
+            </p>
+          </div>
+          
+          <div>
+            <p class="text-caption text-muted-foreground mb-3">BODY • 16px • Regular • LH 1.625 (BASE)</p>
+            <p class="text-body max-w-prose">
+              The quick brown fox jumps over the lazy dog. This is the standard body text used throughout the application. It's optimized for readability with a comfortable line height and serves as the foundation of our typographic system. This size should be used for all main content, articles, and general text.
+            </p>
+          </div>
+          
+          <div>
+            <p class="text-caption text-muted-foreground mb-3">BODY SM • 14px • Regular • LH 1.5</p>
+            <p class="text-body-sm max-w-prose">
+              The quick brown fox jumps over the lazy dog. This is small body text, useful for secondary information, captions, or UI elements where space is limited but readability is still important.
+            </p>
+          </div>
+          
+          <div>
+            <p class="text-caption text-muted-foreground mb-3">BODY XS • 12px • Regular • LH 1.5</p>
+            <p class="text-body-xs max-w-prose">
+              The quick brown fox jumps over the lazy dog. This is extra small body text for tertiary information or very compact UI elements.
+            </p>
+          </div>
+        </div>
+
+        <!-- UI Text -->
+        <div class="space-y-8 mt-16">
+          <div>
+            <p class="text-caption text-muted-foreground mb-3">CAPTION • 12px • Medium • 0.05em • UPPERCASE</p>
+            <p class="text-caption">The quick brown fox • Metadata • Tags</p>
+          </div>
+          
+          <div>
+            <p class="text-caption text-muted-foreground mb-3">OVERLINE • 10px • Semibold • 0.1em • UPPERCASE</p>
+            <p class="text-overline">Category Label</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Font Weights -->
+      <section>
+        <h2 class="text-h2 mb-12">Font Weights</h2>
+        
+        <div class="space-y-6">
+          <p class="text-2xl font-light">Light (300) - The quick brown fox</p>
+          <p class="text-2xl font-normal">Regular (400) - The quick brown fox</p>
+          <p class="text-2xl font-medium">Medium (500) - The quick brown fox</p>
+          <p class="text-2xl font-semibold">Semibold (600) - The quick brown fox</p>
+          <p class="text-2xl font-bold">Bold (700) - The quick brown fox</p>
+          <p class="text-2xl font-extrabold">Extrabold (800) - The quick brown fox</p>
+          <p class="text-2xl font-black">Black (900) - The quick brown fox</p>
+        </div>
+      </section>
+
+      <!-- Spacing System -->
+      <section>
+        <h2 class="text-h2 mb-2">Spacing System</h2>
+        <p class="text-body text-muted-foreground mb-12">8pt Grid with 4pt half-steps</p>
+        
+        <div class="space-y-4">
+          <div class="flex items-center gap-4">
+            <div class="w-20 text-body-sm text-muted-foreground">space-1</div>
+            <div class="h-8 bg-primary" style="width: 4px;"></div>
+            <span class="text-body-sm">4px</span>
+          </div>
+          
+          <div class="flex items-center gap-4">
+            <div class="w-20 text-body-sm text-muted-foreground">space-2</div>
+            <div class="h-8 bg-primary" style="width: 8px;"></div>
+            <span class="text-body-sm">8px - Base unit</span>
+          </div>
+          
+          <div class="flex items-center gap-4">
+            <div class="w-20 text-body-sm text-muted-foreground">space-3</div>
+            <div class="h-8 bg-primary" style="width: 12px;"></div>
+            <span class="text-body-sm">12px</span>
+          </div>
+          
+          <div class="flex items-center gap-4">
+            <div class="w-20 text-body-sm text-muted-foreground">space-4</div>
+            <div class="h-8 bg-primary" style="width: 16px;"></div>
+            <span class="text-body-sm">16px</span>
+          </div>
+          
+          <div class="flex items-center gap-4">
+            <div class="w-20 text-body-sm text-muted-foreground">space-6</div>
+            <div class="h-8 bg-primary" style="width: 24px;"></div>
+            <span class="text-body-sm">24px</span>
+          </div>
+          
+          <div class="flex items-center gap-4">
+            <div class="w-20 text-body-sm text-muted-foreground">space-8</div>
+            <div class="h-8 bg-primary" style="width: 32px;"></div>
+            <span class="text-body-sm">32px</span>
+          </div>
+          
+          <div class="flex items-center gap-4">
+            <div class="w-20 text-body-sm text-muted-foreground">space-12</div>
+            <div class="h-8 bg-primary" style="width: 48px;"></div>
+            <span class="text-body-sm">48px</span>
+          </div>
+          
+          <div class="flex items-center gap-4">
+            <div class="w-20 text-body-sm text-muted-foreground">space-16</div>
+            <div class="h-8 bg-primary" style="width: 64px;"></div>
+            <span class="text-body-sm">64px</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Colors -->
+      <section>
+        <h2 class="text-h2 mb-12">Colors</h2>
+        
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+          <div>
+            <div class="h-24 rounded-lg bg-background border mb-3"></div>
+            <p class="text-body-sm font-medium">Background</p>
+            <p class="text-caption text-muted-foreground">bg-background</p>
+          </div>
+          
+          <div>
+            <div class="h-24 rounded-lg bg-foreground mb-3"></div>
+            <p class="text-body-sm font-medium">Foreground</p>
+            <p class="text-caption text-muted-foreground">bg-foreground</p>
+          </div>
+          
+          <div>
+            <div class="h-24 rounded-lg bg-primary mb-3"></div>
+            <p class="text-body-sm font-medium">Primary</p>
+            <p class="text-caption text-muted-foreground">bg-primary</p>
+          </div>
+          
+          <div>
+            <div class="h-24 rounded-lg bg-secondary mb-3"></div>
+            <p class="text-body-sm font-medium">Secondary</p>
+            <p class="text-caption text-muted-foreground">bg-secondary</p>
+          </div>
+          
+          <div>
+            <div class="h-24 rounded-lg bg-muted mb-3"></div>
+            <p class="text-body-sm font-medium">Muted</p>
+            <p class="text-caption text-muted-foreground">bg-muted</p>
+          </div>
+          
+          <div>
+            <div class="h-24 rounded-lg bg-accent mb-3"></div>
+            <p class="text-body-sm font-medium">Accent</p>
+            <p class="text-caption text-muted-foreground">bg-accent</p>
+          </div>
+          
+          <div>
+            <div class="h-24 rounded-lg bg-destructive mb-3"></div>
+            <p class="text-body-sm font-medium">Destructive</p>
+            <p class="text-caption text-muted-foreground">bg-destructive</p>
+          </div>
+          
+          <div>
+            <div class="h-24 rounded-lg bg-border border-4 border-border mb-3"></div>
+            <p class="text-body-sm font-medium">Border</p>
+            <p class="text-caption text-muted-foreground">border-border</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Example Content -->
+      <section>
+        <h2 class="text-h2 mb-12">Example Article</h2>
+        
+        <article class="max-w-prose space-y-6">
+          <h1 class="text-h1">The Art of Modern Web Typography</h1>
+          
+          <p class="text-body-lg text-muted-foreground">
+            A comprehensive guide to creating beautiful, readable, and accessible type systems for the modern web.
+          </p>
+          
+          <h2 class="text-h2 mt-12">Introduction to Type Scales</h2>
+          
+          <p class="text-body">
+            Typography is more than just choosing pretty fonts—it's about creating a hierarchy that guides readers through your content. A well-designed type scale establishes this hierarchy using mathematical ratios that create visual harmony.
+          </p>
+          
+          <p class="text-body">
+            The Major Third ratio (1.25) strikes a perfect balance between subtle and dramatic size differences, making it ideal for content-heavy websites and applications where readability is paramount.
+          </p>
+          
+          <h3 class="text-h3 mt-8">Key Principles</h3>
+          
+          <p class="text-body">
+            When designing with a typographic scale, consider these fundamental principles:
+          </p>
+          
+          <p class="text-body">
+            First, maintain consistent line heights that follow your baseline grid. This creates vertical rhythm and makes your layouts feel more cohesive. Second, use letter spacing judiciously—tighter for large headings, wider for small caps and labels.
+          </p>
+          
+          <h4 class="text-h4 mt-6">Practical Applications</h4>
+          
+          <p class="text-body">
+            In practice, this means using larger sizes for emphasis and smaller sizes for secondary content. Body text should always be optimized for long-form reading, with generous line heights and appropriate measure (45-75 characters per line).
+          </p>
+          
+          <p class="text-caption mt-8">Published on January 30, 2026 • 5 min read</p>
+        </article>
+      </section>
+
+    </div>
+  </div>
+</Layout>

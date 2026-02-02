@@ -1,0 +1,154 @@
+<nav class="border-b bg-transparent z-50 backdrop-blur-md fixed w-full top-0 left-0">
+  <div class="container mx-auto px-4">
+    <div class="flex h-20 items-center justify-between">
+      <!-- Logo -->
+      <a href="/">
+        <img src="/logo.png" alt="Omnaris Logo" class="w-28"/>
+      </a>
+
+      <!-- Desktop Menu -->
+      <div class="hidden md:flex md:items-center md:gap-8 z-50">
+        <!-- Liens simples -->
+        <a href="/" class="font-medium text-muted-foreground hover:text-foreground transition-colors">
+          Accueil
+        </a>
+        <a href="/" class="font-medium text-muted-foreground hover:text-foreground transition-colors">
+          Nos expertises
+        </a>
+        <a href="/" class="font-medium text-muted-foreground hover:text-foreground transition-colors">
+          Réalisations
+        </a>
+        <a href="/" class="font-medium text-muted-foreground hover:text-foreground transition-colors">
+          Avis clients
+        </a>
+     
+        <!-- Menu avec dropdown 
+        <div class="nav-dropdown relative">
+          <button class="nav-trigger flex items-center gap-1 font-medium text-muted-foreground hover:text-foreground transition-colors">
+            Nos expertises
+            <svg class="h-4 w-4 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+            </svg>
+          </button>
+          <div class="nav-content absolute left-0 top-full mt-2 w-64 rounded-md border bg-popover p-4 shadow-lg opacity-0 invisible transition-all">
+            <a href="/docs" class="block text-sm rounded-md px-3 py-2 hover:bg-accent hover:text-accent-foreground transition-colors">
+              Création de site internet
+            </a>
+            <a href="/intro" class="block text-sm rounded-md px-3 py-2 hover:bg-accent hover:text-accent-foreground transition-colors">
+              Stratégie de référencement naturel (SEO)
+            </a>
+            <a href="/installation" class="block text-sm rounded-md px-3 py-2 hover:bg-accent hover:text-accent-foreground transition-colors">
+              Campagnes publicitaires (SEA)
+            </a>
+          </div>
+        </div>
+      
+        
+        <a href="/blog" class="font-medium text-muted-foreground hover:text-foreground transition-colors">
+          Blog
+        </a>
+      -->
+      </div>
+
+      <a href="/contact" class="btn btn-primary hidden md:inline-flex">
+        Prendre contact
+      </a>
+
+      <!-- Mobile Menu Button -->
+      <button id="mobile-menu-button" class="md:hidden p-2 rounded-md hover:bg-accent">
+        <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path id="menu-icon" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          <path id="close-icon" class="hidden" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden md:hidden pb-4">
+      <div class="space-y-1">
+        <a href="/" class="block px-3 py-2 text-sm font-medium text-muted-foreground hover:bg-accent hover:text-accent-foreground rounded-md transition-colors">
+          Accueil
+        </a>
+        
+        <!-- Dropdown mobile -->
+        <div>
+          <button class="mobile-dropdown-trigger w-full flex items-center justify-between px-3 py-2 text-sm font-medium text-muted-foreground hover:bg-accent hover:text-accent-foreground rounded-md transition-colors">
+            Nos expertises
+            <svg class="h-4 w-4 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+            </svg>
+          </button>
+          <div class="mobile-dropdown-content hidden pl-4 space-y-1 mt-1">
+            <a href="/docs" class="block px-3 py-2 text-sm text-muted-foreground hover:bg-accent hover:text-accent-foreground rounded-md transition-colors">
+              Création de site internet
+            </a>
+            <a href="/intro" class="block px-3 py-2 text-sm text-muted-foreground hover:bg-accent hover:text-accent-foreground rounded-md transition-colors">
+              Stratégie de référencement naturel (SEO)
+            </a>
+            <a href="/installation" class="block px-3 py-2 text-sm text-muted-foreground hover:bg-accent hover:text-accent-foreground rounded-md transition-colors">
+              Campagnes publicitaires (SEA)
+            </a>
+          </div>
+        </div>
+
+        <a href="/blog" class="block px-3 py-2 text-sm font-medium text-muted-foreground hover:bg-accent hover:text-accent-foreground rounded-md transition-colors">
+          Blog
+        </a>
+        
+        <a href="/contact" class="btn btn-primary w-full mt-4">
+          Prendre contact
+        </a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<script>
+// Desktop dropdown - hover instead of click
+const dropdown = document.querySelector('.nav-dropdown');
+const trigger = dropdown?.querySelector('.nav-trigger');
+const content = dropdown?.querySelector('.nav-content');
+const icon = trigger?.querySelector('svg');
+
+dropdown?.addEventListener('mouseenter', () => {
+  content?.classList.remove('opacity-0', 'invisible');
+  icon?.classList.add('rotate-180');
+});
+
+dropdown?.addEventListener('mouseleave', () => {
+  content?.classList.add('opacity-0', 'invisible');
+  icon?.classList.remove('rotate-180');
+});
+
+// Mobile menu toggle
+const mobileMenuButton = document.getElementById('mobile-menu-button');
+const mobileMenu = document.getElementById('mobile-menu');
+const menuIcon = document.getElementById('menu-icon');
+const closeIcon = document.getElementById('close-icon');
+
+mobileMenuButton?.addEventListener('click', () => {
+  mobileMenu?.classList.toggle('hidden');
+  menuIcon?.classList.toggle('hidden');
+  closeIcon?.classList.toggle('hidden');
+});
+
+// Mobile dropdown
+const mobileDropdownTrigger = document.querySelector('.mobile-dropdown-trigger');
+const mobileDropdownContent = document.querySelector('.mobile-dropdown-content');
+const mobileIcon = mobileDropdownTrigger?.querySelector('svg');
+
+mobileDropdownTrigger?.addEventListener('click', () => {
+  mobileDropdownContent?.classList.toggle('hidden');
+  mobileIcon?.classList.toggle('rotate-180');
+});
+</script>
+
+<style>
+.nav-content {
+  transition: opacity 200ms, visibility 200ms;
+}
+
+svg {
+  transition: transform 200ms;
+}
+</style>

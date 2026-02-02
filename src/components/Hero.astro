@@ -1,0 +1,64 @@
+---
+import { Cover } from "@/components/ui/cover";
+import { HoverBorderGradient } from "@/components/ui/hover-border-gradient";
+
+
+
+const columns = [5, 20, 35, 50, 65, 80, 80, 65, 50, 35, 20, 5];
+
+---
+
+<section class="section-hero flex flex-col items-center justify-center">
+
+     
+    <div class="flex min-h-screen w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex-col items-center justify-center py-8 sm:py-12 md:py-16 lg:py-20 z-30 text-center">
+      <div class="flex mb-6 flex-row justify-center items-center">
+        <img src="johann-cp.jpeg" alt="Photo de profil client satisfait" class="rounded-full w-10 h-10 border-white  border-2 -ml-5 object-cover"/>
+        <img src="tanguy.png" alt="Photo de profil client satisfait" class="rounded-full w-10 h-10 border-white  border-2 -ml-5 object-cover"/>
+        <img src="logan2.webp" alt="Photo de profil client satisfait" class="rounded-full w-10 h-10 border-white  border-2 -ml-5 object-cover"/>
+        <img src="romain.jpg" alt="Photo de profil client satisfait" class="rounded-full w-10 h-10 border-white  border-2 -ml-5 object-cover"/>
+        <p class="pl-4 mb-0">+30 clients satisafaits</p>
+        
+      </div> 
+
+    <!-- Title -->
+    <h1 class="text-display-xl mb-6 title-overlay leading-tight sm:text-h2">
+        Construisons ensemble un site internet moderne et <Cover children="performant" client:load/>
+    </h1>
+
+        <!-- Description -->
+    <p class="max-w-2xl mb-6 text-neutral-dark">
+        Omnaris est une agence web Normande basée à Caen, vous proposant des prestations avancées et premium par abonnement. Votre présence en ligne 100% déléguée avec prise en charge totale de la création, publication, maintenance et gestion de votre site web."
+    </p>
+    <div class="flex gap-4 z-20">
+        <button class="bg-slate-800 no-underline group cursor-pointer relative shadow-2xl shadow-zinc-900 rounded-full p-px font-semibold leading-6  text-white inline-block">
+            <span class="absolute inset-0 overflow-hidden rounded-full">
+              <span class="absolute inset-0 rounded-full bg-[radial-gradient(75%_100%_at_50%_0%,rgba(56,189,248,0.6)_0%,rgba(56,189,248,0)_75%)] opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+            </span>
+            <div class="relative flex space-x-2 items-center z-10 rounded-full bg-primary py-2 px-6 ring-1 ring-white/10 ">
+              <span>
+                Prendre rendez-vous
+              </span>
+              <svg
+                fill="none"
+                height="16"
+                viewBox="0 0 24 24"
+                width="16"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M10.75 8.75L14.25 12L10.75 15.25"
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  strokeWidth="1.5"
+                />
+              </svg>
+            </div>
+            <span class="absolute -bottom-0 left-[1.125rem] h-px w-[calc(100%-2.25rem)] bg-gradient-to-r from-emerald-400/0 via-emerald-400/90 to-emerald-400/0 transition-opacity duration-500 group-hover:opacity-40" />
+          </button>
+    </div>
+  </div>
+
+  
+</section>

@@ -1,0 +1,71 @@
+---
+import { InfiniteMovingCards } from "@/components/ui/infinite-moving-cards";
+
+const testimonials = [
+  {
+    quote: "Maxime a su réaliser le travail demandé rapidement et avec compétence. Il a également pris des initiatives appréciables. Je le recommande vivement.",
+    name: "TanguyIA",
+    title: ""
+  },
+  {
+    quote: "Pour avoir fait appel à plusieurs prestataires pour des projets Webflow, Maxime est de loin le plus compétent. En général, il faut constamment assister les prestataires car ils manquent de sens du design et de l'UX. Maxime comprend immédiatement les besoins et les exécute avec précision et goût. Je le recommande sans hésitation.",
+    name: "Logan",
+    title: ""
+  },
+  {
+    quote: "Maxime est extrêmement consciencieux dans son travail. Il ne se contente pas du minimum et n'hésite pas à aller plus loin pour atteindre un résultat vraiment excellent. Je suis très satisfait de cette retouche sur mon site Webflow, et je compte bien lui confier mes prochaines missions sans hésiter. Merci Maxime",
+    name: "romain_eve",
+    title: ""
+  },
+  {
+    quote: "franchement Maxime est très pro, pour être sur la plateforme depuis des années en tant qu'acheteur et d'avoir testé des centaines de vendeur, il fait parti de mon top 3 des meilleurs vendeurs. Je le recommande les yeux fermés.",
+    name: "johann_gmb",
+    title: ""
+  },
+  {
+    quote: "Merci Maxime pour ton travail de qualité ! À l'écoute, compétent et efficace. Il prend en compte tous les retours. Le design a bien été repris pour refléter la marque, le site est techniquement bien conçu. Toujours accompagné de vidéos explicatives. Je garde ton contact et recommande vivement Maxime !",
+    name: "MeganeWintz",
+    title: ""
+  },
+  {
+    quote: "Très pro rien a redire",
+    name: "AubinGuillotol",
+    title: ""
+  },
+  {
+    quote: "Magnifique travail, maxime est la personne idéal et de loin le meilleur sur comeup en création de site sur webflow.",
+    name: "Logan",
+    title: ""
+  },
+  {
+    quote: "Je collabore avec Maxime depuis plusieurs mois, et son expertise ainsi que sa réactivité sont vraiment appréciées. Merci Omnaris !",
+    name: "Emilien H",
+    title: ""
+  },
+  {
+    quote: "J'ai fait appel à Omnaris pour une stratégie SEO pour mon site web. La stratégie proposée répond parfaitement à mes attentes et je vois déjà des résultats au niveau du référencement naturel. Merci !",
+    name: "maxime vannier",
+    title: ""
+  }
+];
+---
+<section class="section-layout flex flex-col items-start gap-4">
+    <span class="inline-flex rounded-full bg-secondary/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-secondary">
+        Avis clients
+      </span>
+  <h2 class="title-overlay">Nos retours clients</h2>
+  <InfiniteMovingCards 
+  items={testimonials}
+  direction="left"
+  speed="slow"
+  pauseOnHover={true}
+  client:load
+/>
+
+<InfiniteMovingCards 
+  items={testimonials}
+  direction="right"
+  speed="slow"
+  pauseOnHover={true}
+  client:load
+/>

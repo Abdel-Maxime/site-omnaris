@@ -1,0 +1,40 @@
+---
+interface Props {
+    titre: string;
+    urlImage: string;
+    urlLive: string;
+}
+
+const { titre, urlImage, urlLive } = Astro.props as Props;
+---
+  
+  <div class="flex-col text-center gap-16 min-w-100">
+    <div class="hover-3d">
+        <!-- content -->
+        <figure class="w-full rounded-xl">
+          <img src={urlImage} alt="Image realisation" />
+        </figure>
+        <!-- 8 empty divs needed for the 3D effect -->
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+    <div class="flex justify-between items-center w-full align-text-bottom">
+        <h3 class="text-lg font-medium text-left max-w-[50%]">{titre}</h3>
+        <a href={urlLive} rel="noopener nofollow" target="_blank">
+            <button class="btn btn-ghost">
+                Voir en live
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-arrow-right-short" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8"/>
+                </svg>
+            </button>
+        </a>
+        
+    </div>
+    </div>  
+    

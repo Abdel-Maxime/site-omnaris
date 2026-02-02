@@ -1,0 +1,54 @@
+---
+// src/pages/index.astro (ou ton fichier .astro)
+import {
+  Navbar,
+  NavBody,
+  NavItems,
+  MobileNav,
+  MobileNavHeader,
+  MobileNavMenu,
+  MobileNavToggle,
+  NavbarLogo,
+  NavbarButton,
+} from "@/components/ui/resizable-navbar";
+---
+
+<Navbar client:load>
+  <!-- Version Desktop -->
+  <NavBody>
+    <NavbarLogo />
+    <NavItems
+      items={[
+        { name: "Accueil", link: "/" },
+        { name: "Services", link: "/services" },
+        { name: "Blog", link: "/blog" },
+        { name: "Contact", link: "/contact" },
+      ]}
+    />
+    <div class="flex items-center gap-4">
+      <NavbarButton variant="secondary" href="/login">
+        Connexion
+      </NavbarButton>
+      <NavbarButton variant="primary" href="/signup">
+        Inscription
+      </NavbarButton>
+    </div>
+  </NavBody>
+
+  <!-- Version Mobile -->
+  <MobileNav>
+    <MobileNavHeader>
+      <NavbarLogo />
+      <MobileNavToggle isOpen={false} onClick={() => {}} />
+    </MobileNavHeader>
+    <MobileNavMenu isOpen={false} onClose={() => {}}>
+      <a href="/">Accueil</a>
+      <a href="/services">Services</a>
+      <a href="/blog">Blog</a>
+      <a href="/contact">Contact</a>
+      <NavbarButton variant="primary" href="/signup" className="w-full">
+        Inscription
+      </NavbarButton>
+    </MobileNavMenu>
+  </MobileNav>
+</Navbar>
