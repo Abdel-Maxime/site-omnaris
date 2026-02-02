@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: htps://www.omnaris.fr/sitemap-index.xml
