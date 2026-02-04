@@ -12,7 +12,7 @@ const { titre, urlImage, urlLive } = Astro.props as Props;
     <div class="hover-3d">
         <!-- content -->
         <figure class="w-full rounded-xl">
-          <img src={urlImage} alt="Image realisation" />
+          <img src={urlImage} loading="lazy" alt="Image realisation" />
         </figure>
         <!-- 8 empty divs needed for the 3D effect -->
         <div></div>
