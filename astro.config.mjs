@@ -7,11 +7,13 @@ import react from '@astrojs/react';
 
 import sitemap from '@astrojs/sitemap';
 
+import imageOptimizer from './src/integrations/image-optimizer.mjs';
+
 // https://astro.build/config
 export default defineConfig({
   vite: {
     plugins: [tailwindcss()]
   },
   site: 'https://www.omnaris.fr',
-  integrations: [react(), sitemap()]
+  integrations: [react(), sitemap(), imageOptimizer()]
 });
