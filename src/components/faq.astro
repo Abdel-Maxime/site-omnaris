@@ -45,7 +45,7 @@ const faqs = [
     <div class="w-full flex flex-col gap-4">
       {faqs.map((faq, index) => (
         <div class="collapse collapse-arrow bg-white border border-gray-200 rounded-xl hover:border-gray-300 transition-colors">
-          <input type="radio" name="faq-accordion" checked={index === 0} />
+          <input type="radio" aria-labelledby="FAQ-toggle" name="faq-accordion" checked={index === 0} />
           <div class="collapse-title text-lg font-semibold text-gray-900">
             {faq.question}
           </div>
