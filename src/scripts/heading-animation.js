@@ -7,7 +7,7 @@ import { SplitText } from "gsap/SplitText";
 gsap.registerPlugin(ScrollTrigger, SplitText);
 
 export function initSplitTextAnimation() {
-  const headings = document.querySelectorAll("h1, h2, h3");
+  const headings = document.querySelectorAll("h1:not(.prose h1), h2:not(.prose h2), h3:not(.prose h3)");
 
   headings.forEach((heading) => {
     if (heading.dataset.animated) return;

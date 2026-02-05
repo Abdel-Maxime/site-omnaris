@@ -1,0 +1,70 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import Header from '@/components/header.astro';
+import { getCollection } from 'astro:content';
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import {
+  Card,
+  CardAction,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+
+// Récupère tous les articles de la collection "blog"
+const allPosts = await getCollection('blog');
+
+// Filtre et trie les articles
+const publishedPosts = allPosts
+  .filter(post => !post.data.draft) // Exclut les brouillons
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()); // Trie du plus récent au plus ancien
+---
+
+<Layout
+  title='Notre blog | Omnaris'
+  description="Découvrez les dernières actualités, conseils et tendances en matière de création de sites web, marketing digital et développement d\'entreprises avec le blog d\'Omnaris."
+  >
+    <Header title="Notre blog" description="Découvrez les dernières actualités, conseils et tendances en matière de création de sites web, marketing digital et développement d'entreprises avec le blog d'Omnaris." /> 
+    <section class="section-layout flex flex-col gap-12">
+    <h2>Nos derniers articles</h2>
+        <!-- Grille d'articles -->
+    <div class="grid h-auto grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {publishedPosts.map((post) => (
+            <a href={`/blog/${post.slug}`} class="block group">
+  <Card className="relative overflow-hidden h-auto mx-auto w-full max-w-sm pt-0 transition-all hover:shadow-xl hover:scale-[1.02]" client:load>
+    <div class="absolute inset-0 z-30 aspect-video bg-black/35 group-hover:bg-black/20 transition-colors" />
+    {post.data.mainImage && (
+      <img 
+        src={post.data.mainImage} 
+        alt={post.data.title}
+        class="relative z-20 aspect-video w-full object-cover brightness-80 grayscale dark:brightness-60 group-hover:brightness-90 transition-all" 
+      />
+    )}
+    <CardHeader client:load>
+      <CardAction client:load>
+        <Badge variant="default">{post.data.category}</Badge>
+      </CardAction>
+      <CardTitle client:load>{post.data.title}</CardTitle>
+      <CardDescription client:load>
+        Publié le {new Date(post.data.pubDate).toLocaleDateString('fr-FR', {
+          year: 'numeric',
+          month: 'long',
+          day: 'numeric'
+        })} - par {post.data.author}
+      </CardDescription>
+    </CardHeader>
+    <CardFooter client:load>
+      <Button variant="default" className="w-full pointer-events-none" client:load>
+        Lire l'article
+      </Button>
+    </CardFooter>
+  </Card>
+</a>
+        ))}
+      </div>
+        
+    </section>
+    
+</Layout>
